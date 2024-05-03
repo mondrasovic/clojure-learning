@@ -10,6 +10,15 @@
                            :else (every? true? (map #(not= (mod n %) 0) (range 2 n)))))]
     (take count (filter is-prime (range)))))
 
+(defn fib
+  "Returns the first N numbers of the Fibonacci sequence."
+  [n]
+  (take n
+        (map last
+             (iterate
+              (fn [[a b]] [b (+ a b)])
+              [0 1]))))
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
